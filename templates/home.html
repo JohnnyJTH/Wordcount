@@ -1,9 +1,105 @@
+<script type="text/javascript">
+  function setbg(color)
+  {
+  document.getElementById("styled").style.background=color
+  }
+</script>
+
+<style>
+  input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  textarea#styled {
+    resize: vertical;
+    outline: none;
+    width: 1000px;
+    height: 300px;
+    border: 1px solid #f1f1f1;
+    border-radius: 5px;
+    box-shadow:0 0 5px rgb(141, 141, 141);
+    padding: 10px;
+    font-family: Tahoma, sans-serif;
+  }
+  
+  input[type=submit] {
+    font-size: 40px;
+    width: 25%;
+    background-color: #06f7ff;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #00ffb3;
+  }
+  
+  div {
+    text-align: center;
+    border-radius: 5px;
+    padding: 20px;
+  }
+
+  h1 { color: #fff; font-family: 'Righteous', cursive; font-size: 150px; font-weight: normal; line-height: 200px; margin: 10px 0 20px; text-transform: uppercase; text-shadow: 2px 2px 0 #000, margin: 10px 0 24px; text-align: center; }
+  /*h1 { color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 200px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }*/
+  h2 { color: #111; font-family: 'Open Sans', sans-serif; font-size: 30px; font-weight: 300; line-height: 32px; margin: 0 0 72px; text-align: center; }
+  p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; line-height: 24px; margin: 0 0 24px; text-align: justify; text-justify: inter-word; }
+
+  /* unvisited link */
+	a:link {
+    text-decoration: none;
+		font-size: 40px;
+    width: 25%;
+    background-color: #06f7ff;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+	}
+
+	/* visited link */
+	a:visited {
+    color: white;
+		background-color: rgb(0, 255, 255);
+	}
+
+	/* mouse over link */
+	a:hover {
+    color: white;
+		background-color: rgb(0, 255, 213);
+	}
+
+	/* selected link */
+	a:active {
+    color: white;
+		background-color: rgb(0, 255, 255);
+	}
+
+  body {
+  background-image: url('https://i.imgur.com/eJrLcgU.jpg');
+  }
+</style>
+
 <h1>Word Counter</h1>
 
-<a href="{% url 'about' %}">About</a>
+<div>
+  <form action="{% url 'count' %}">
+    <textarea id="styled" maxlength="1800" placeholder="Type your text here..." cols="60" rows="40" name="fulltext"></textarea>
+    <br />
+    <input type="submit" value="Count!" />
+  </form>
+</div>
 
-<form action="{% url 'count' %}">
-  <textarea cols="40" rows="10" name="fulltext"></textarea>
-  <br />
-  <input type="submit" value="Count!" />
-</form>
+<h2><a href="{% url 'about' %}">About</a></h2>

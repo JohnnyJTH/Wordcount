@@ -10,6 +10,8 @@ def about(request):
 
 def count(request):
     fulltext = request.GET['fulltext']
+    chars = len(fulltext)
+    wspaces = len(fulltext.replace(' ', ''))
 
     wordlist = fulltext.split()
 
@@ -25,4 +27,4 @@ def count(request):
 
     sortedwords = sorted(worddictionary.items(), key=operator.itemgetter(1), reverse=True)
 
-    return render(request, 'count.html',{'fulltext':fulltext,'count':len(wordlist),'sortedwords':sortedwords})
+    return render(request, 'count.html',{'fulltext':fulltext,'count':len(wordlist),'sortedwords':sortedwords,'characters':chars,'wcharacters':wspaces})
